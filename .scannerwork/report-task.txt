@@ -1,0 +1,6 @@
+projectKey=metal_shop
+serverUrl=http://localhost:8889
+serverVersion=9.0.1.46107
+dashboardUrl=http://localhost:8889/dashboard?id=metal_shop
+ceTaskId=AXvuEU064ZarbHAxGjO9
+ceTaskUrl=http://localhost:8889/api/ce/task?id=AXvuEU064ZarbHAxGjO9
