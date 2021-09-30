@@ -1,8 +1,9 @@
 import {
   getAll,
   addNewMetal,
-  removeOneMetal,
-  addOneToCart,
+  removeOneFromCart,
+  addOneToCartPost,
+  getAllCarts,
   // toggleMetal,
 } from '../services/metals';
 
@@ -14,8 +15,6 @@ export const DELETE_METAL = 'DELETE_METAL';
 export const INIT_CART = 'INIT_CART';
 export const ADD_TO_CART = 'ADD_TO_CART';
 export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
-// export const ADJUST_AMOUNT = 'ADJUST_AMOUNT';
-// export const LOAD_CURRENT_ITEM = 'LOAD_CURRENT_ITEM';
 
 export const initializeMetals = () => {
   return async (dispatch) => {
@@ -27,44 +26,56 @@ export const initializeMetals = () => {
   };
 };
 
-export const addNew = (name, desc, pic, inCart) => {
-  inCart = 0;
+export const initializeCart = () => {
   return async (dispatch) => {
-    const newMetal = await addNewMetal(name, desc, pic, inCart);
+    const carts = await getAllCarts();
+    dispatch({
+      type: INIT_CART,
+      data: carts,
+    });
+  };
+};
+
+export const addNew = (name, desc, pic, price) => {
+  return async (dispatch) => {
+    const newMetal = await addNewMetal(name, desc, pic, price);
     dispatch({
       type: ADD_METAL,
       data: newMetal,
     });
   };
 };
-// export const removeMetal = (id) => {
+
+export const addOneToCart = (id, name, price) => {
+  return async (dispatch) => {
+    const cartItem = await addOneToCartPost(id, name, price);
+    dispatch({
+      type: ADD_TO_CART,
+      data: cartItem,
+    });
+  };
+};
+
+// export const addToCart = (metal) => {
 //   return async (dispatch) => {
-//     await removeOneMetal(id);
-//     const metals = await getAll();
+//     await addOneToCart(metal.id, metal.name, metal.price);
 //     dispatch({
-//       type: DELETE_METAL,
-//       data: metals,
+//       type: ADD_TO_CART,
+//       data: metal,
 //     });
 //   };
 // };
 
-// export const addToCart = (id) => {
+
+// export const addToCart = (metal) => {
 //   return async (dispatch) => {
-//     await addOneToCart(id);
+//     await addOneToCart(metal);
 //     dispatch({
 //       type: ADD_TO_CART,
-//       data: id,
+//       payload: metal,
 //     });
 //   };
 // };
-export const addToCart = (metal) => {
-  return (dispatch) => {
-    dispatch({
-      type: ADD_TO_CART,
-      payload: metal,
-    });
-  };
-};
 // export const addToCart = (id, metal) => {
 //   return async (dispatch) => {
 //     await addOneToCart(id, metal);
@@ -75,20 +86,13 @@ export const addToCart = (metal) => {
 //   };
 // };
 
-export const removeMetal = (metal) => {
-  return (dispatch) => {
+export const removeMetal = (cart) => {
+  return async (dispatch) => {
+    await removeOneFromCart(cart.name, cart.id);
+    const carts = await getAllCarts();
     dispatch({
       type: REMOVE_FROM_CART,
-      payload: metal,
+      payload: carts,
     });
   };
 };
-// export const toggleDone = (id, metal) => {
-//   return async (dispatch) => {
-//     await toggleMetal(id, metal);
-//     dispatch({
-//       type: TOGGLE_COMPLETE,
-//       id: id,
-//     });
-//   };
-// };

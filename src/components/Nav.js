@@ -1,13 +1,6 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  NavLink,
-} from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-// import { Switch, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { TiShoppingCart } from 'react-icons/ti';
 
 function Navigation() {
@@ -25,15 +18,12 @@ function Navigation() {
           <Link to="/about">About</Link>
         </li>
         <li>
-          {/* would be awesome to bold the cart icon when there's products and change color red */}
-
           <Link to="/cart">
             {cartItems.length > 0 ? (
               <TiShoppingCart className="fat-icon" />
             ) : (
               <TiShoppingCart className="icon" />
             )}
-            {/* <TiShoppingCart className="icon" /> */}
           </Link>
         </li>
         <li>

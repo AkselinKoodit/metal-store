@@ -10,14 +10,9 @@ const NewMetal = () => {
     const name = e.target.name.value;
     const desc = e.target.desc.value;
     const pic = e.target.pic.value;
-    const inCart = 0;
-    console.log(
-      'Clicked add metal. This gets sent: ' + name,
-      desc,
-      pic,
-      inCart
-    );
-    dispatch(addNew(name, desc, pic, inCart));
+    const price = 1 * e.target.price.value;
+    console.log('Clicked add metal. This gets sent: ' + name, desc, pic, price);
+    dispatch(addNew(name, desc, pic, price));
     e.target.desc.value = '';
   };
 
@@ -34,6 +29,7 @@ const NewMetal = () => {
         placeholder="Enter metal picture..."
         name="pic"
       ></input>
+      <input type="number" name="price" placeholder="price €/kg"></input>
       <input type="submit" className="btn" value="Add metal" />
     </form>
   );

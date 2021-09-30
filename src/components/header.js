@@ -5,7 +5,7 @@ function Header() {
   return (
     <header className="header">
       <Navigation />
-      <h1>Welcome to the Metal store!</h1>
+      <h1>Metal Store!</h1>
     </header>
   );
 }
