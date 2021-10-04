@@ -5,6 +5,7 @@ import Footer from './components/footer';
 import Header from './components/header';
 import Main from './containers/Main';
 import React, { useEffect, useContext, createContext, useState } from 'react';
+import GlobalState from './context/GlobalState';
 
 const App = () => {
   // const dispatch = useDispatch();
@@ -18,13 +19,15 @@ const App = () => {
   // }, [dispatch]);
 
   return (
-    <div className="app">
-      <Router>
-        <Header />
-        <Main />
-        <Footer />
-      </Router>
-    </div>
+    <GlobalState>
+      <div className="app">
+        <Router>
+          <Header />
+          <Main />
+          <Footer />
+        </Router>
+      </div>
+    </GlobalState>
   );
 };
 

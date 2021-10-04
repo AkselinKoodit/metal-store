@@ -4,7 +4,6 @@ import ShopContext from '../context/context';
 
 const MetalsList = () => {
   const context = useContext(ShopContext);
-
   return (
     <>
       <main>
@@ -22,12 +21,18 @@ const MetalsList = () => {
                 ) : (
                   <img src={product.pic} alt={product.name} />
                 )}
+                <p>Price of the metal: {product.price} €/kg</p>
+                <button onClick={() => context.addProduct(product)}>
+                  Add to Cart
+                </button>
               </div>
             </li>
           ))}
         </ul>
+        {context.cart.length <= 0 && <p>No Item in the Cart!</p>}
       </main>
     </>
   );
 };
+
 export default MetalsList;
