@@ -3,6 +3,14 @@ import ShopContext from '../context/context';
 
 const ShoppingCart = () => {
   const context = useContext(ShopContext);
+
+  let getTotalPrice = () => {
+    let totalPrice = 0;
+    context.cart.forEach((item) => {
+      totalPrice = totalPrice + item.price * item.qty;
+    });
+    return totalPrice;
+  };
   return (
     <>
       <div>
@@ -12,18 +20,24 @@ const ShoppingCart = () => {
             You have {context.cart.length} different types of items in the cart:
           </h2>
         )}
-        <ul>
+        <ul className="cart">
           {context.cart.map((cartItem) => (
-            <li key={cartItem.id}>
-              <div>{cartItem.name}</div>
-              <div>{cartItem.price}</div>
-              <div>{cartItem.qty}</div>
+            <li key={cartItem.id} className="cartItem">
+              <h3>{cartItem.name}</h3>
+              <p>{cartItem.qty} kg</p>
+              <p>Metal price: {cartItem.price} €/kg</p>
+              {cartItem.qty > 1 ? (
+                <p>Total price: {cartItem.qty * cartItem.price} €</p>
+              ) : (
+                ''
+              )}
               <button onClick={() => context.removeProduct(cartItem.id)}>
                 Remove from cart
               </button>
             </li>
           ))}
         </ul>
+        <p>Total price: {getTotalPrice()}</p>
       </div>
     </>
   );
