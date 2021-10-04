@@ -56,15 +56,15 @@ export const addOneToCart = (id, name, price) => {
   };
 };
 
-// export const addToCart = (metal) => {
-//   return async (dispatch) => {
-//     await addOneToCart(metal.id, metal.name, metal.price);
-//     dispatch({
-//       type: ADD_TO_CART,
-//       data: metal,
-//     });
-//   };
-// };
+export const addToCart = (metal) => {
+  return async (dispatch) => {
+    await addOneToCart(metal.id, metal.name, metal.price);
+    dispatch({
+      type: ADD_TO_CART,
+      data: metal,
+    });
+  };
+};
 
 
 // export const addToCart = (metal) => {

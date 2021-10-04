@@ -1,13 +1,12 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { MdAddShoppingCart } from 'react-icons/md';
-// import { addToCart } from '../store/actions';
 import { addOneToCart } from '../store/actions';
+// import { addToCart } from '../store/actions';
 
 const MetalsList = () => {
   const metals = useSelector((state) => state.metals);
   const cartItems = useSelector((state) => state.cart);
-  console.log('cartItems length: ' + cartItems.length);
 
   const dispatch = useDispatch();
 
@@ -18,13 +17,7 @@ const MetalsList = () => {
     console.log('Clicked add to cart. This gets sent: ' + id, name, price);
     dispatch(addOneToCart(id, name, price));
   };
-  // const limitWords = (str, word_limit) => {
-  //   let text = str.split(' ');
-  //   if (text.length < word_limit) {
-  //     return str;
-  //   }
-  //   return text.splice(0, no_words).join(' ') + '...';
-  // };
+
 
   return (
     <div>

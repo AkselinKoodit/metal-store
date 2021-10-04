@@ -12,13 +12,13 @@ const cartReducer = (state = [INITIAL_STATE], action) => {
     case actionTypes.INIT_CART:
       return action.data;
     case actionTypes.ADD_TO_CART:
-      console.log('hello from cartReducer! adding a product are we? State is '+state);
+      console.log('hello from cartReducer! adding a product are we? Action payload id is '+action.payload.id);
       updatedCart = [...state];
       console.log('Updatedcart: '+updatedCart);
       updatedItemIndex = updatedCart.findIndex(
         (cart) => cart.id === action.payload.id
       );
-      console.log(action.payload.id);
+      console.log('Action payload id: '+action.payload.id);
       console.log('UpdatedItemIndex looks like this: ' + updatedItemIndex);
 
       if (updatedItemIndex < 0) {
@@ -33,7 +33,7 @@ const cartReducer = (state = [INITIAL_STATE], action) => {
         updatedItem.inCart++;
         updatedCart[updatedItemIndex] = updatedItem;
       }
-      console.log(updatedCart);
+      console.log(updatedCart.name);
       return updatedCart;
 
     case actionTypes.REMOVE_FROM_CART:
@@ -41,7 +41,7 @@ const cartReducer = (state = [INITIAL_STATE], action) => {
       // return action.data;
 
       updatedCart = [...state];
-      console.log('Cart: ' + updatedCart);
+      console.log('Cart: ' + updatedCart.name);
 
       updatedItemIndex = updatedCart.findIndex(
         (item) => item.id === action.payload.id
@@ -56,7 +56,6 @@ const cartReducer = (state = [INITIAL_STATE], action) => {
       } else {
         updatedCart[updatedItemIndex] = updatedItem;
       }
-      console.log(updatedCart);
       return updatedCart;
     default:
       return state;

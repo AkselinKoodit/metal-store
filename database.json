@@ -75,8 +75,27 @@
     {
       "inCart": 1,
       "name": "Steel",
-      "id": 1,
-      "price": 10
+      "id": 1
+    },
+    {
+      "inCart": 3,
+      "name": "Iron",
+      "id": 2,
+      "price": 12,
+      "totalPrice": 36
+    },
+    {
+      "inCart": 1,
+      "name": "Titanium",
+      "id": 5,
+      "price": 942
+    },
+    {
+      "inCart": 2,
+      "name": "silver",
+      "id": 12,
+      "price": 2500,
+      "totalPrice": 5000
     }
   ]
 }

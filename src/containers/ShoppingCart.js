@@ -9,11 +9,6 @@ const ShoppingCart = () => {
 
   const dispatch = useDispatch();
 
-  const handleDelete = (e, cart) => {
-    e.preventDefault();
-    dispatch(removeMetal(cart));
-  };
-
   const overallPrice = (cartItems) => {
     let sum = 0;
     if (cartItems.length<1) {
@@ -56,7 +51,7 @@ const ShoppingCart = () => {
               </p>
               {item.totalPrice ? <p>Total price: {item.totalPrice}</p> : ''}
               <div>
-                <button onClick={(e) => handleDelete(e, item)}>
+                <button onClick={() => dispatch(removeMetal(item))}>
                   Remove from cart
                 </button>
               </div>
