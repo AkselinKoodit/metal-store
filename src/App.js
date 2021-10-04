@@ -6,17 +6,16 @@ import Header from './components/header';
 import Main from './containers/Main';
 import React, { useEffect, useContext, createContext, useState } from 'react';
 
-
 const App = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(initializeMetals());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(initializeMetals());
+  // }, [dispatch]);
 
-  useEffect(() => {
-    dispatch(initializeCart());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(initializeCart());
+  // }, [dispatch]);
 
   return (
     <div className="app">

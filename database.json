@@ -85,10 +85,11 @@
       "totalPrice": 36
     },
     {
-      "inCart": 1,
+      "inCart": 2,
       "name": "Titanium",
       "id": 5,
-      "price": 942
+      "price": 942,
+      "totalPrice": 1884
     },
     {
       "inCart": 2,

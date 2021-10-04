@@ -31,9 +31,9 @@ const Main = () => {
         <Route path="/about">
           <About />
         </Route>
-        <Route path="/add">
+        {/* <Route path="/add">
           <NewMetal />
-        </Route>
+        </Route> */}
         <Route path="/cart">
           <ShoppingCart />
         </Route>

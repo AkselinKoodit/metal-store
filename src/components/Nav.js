@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import { TiShoppingCart } from 'react-icons/ti';
+import ShopContext from '../context/context';
 
-function Navigation() {
-  const cartItems = useSelector((state) => state.cart);
+const Navigation = () => {
+  const cartItems = useContext(ShopContext);
+
   return (
     <nav>
       <ul>
@@ -32,6 +33,6 @@ function Navigation() {
       </ul>
     </nav>
   );
-}
+};
 
 export default Navigation;
