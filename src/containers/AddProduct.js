@@ -1,8 +1,8 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useContext } from 'react';
+import ShopContext from '../context/context';
 
 const NewMetal = () => {
-  const dispatch = useDispatch();
+  const context = useContext(ShopContext);
 
   // const addMetal = async (e) => {
   //   e.preventDefault();

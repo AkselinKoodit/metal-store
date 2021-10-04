@@ -4,7 +4,7 @@ import { TiShoppingCart } from 'react-icons/ti';
 import ShopContext from '../context/context';
 
 const Navigation = () => {
-  const cartItems = useContext(ShopContext);
+  const context = useContext(ShopContext);
 
   return (
     <nav>
@@ -20,7 +20,7 @@ const Navigation = () => {
         </li>
         <li>
           <Link to="/cart">
-            {cartItems.length > 0 ? (
+            {context.cart.length > 0 ? (
               <TiShoppingCart className="fat-icon" />
             ) : (
               <TiShoppingCart className="icon" />

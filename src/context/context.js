@@ -3,17 +3,20 @@ import axios from 'axios';
 
 const baseUrl = 'http://localhost:3001';
 
-// export const getAllMetals = async () => {
-//   const response = await axios.get(`${baseUrl}/metals`);
-//   return response.data;
-// };
+export const getAllMetals = async () => {
+  console.log(metals.length + metals[0]);
+  const response = await axios.get(`${baseUrl}/metals`);
+  return response.data;
+};
+
+let metals = [];
+metals = getAllMetals();
 
 // export const getAllCarts = async () => {
 //     const response = await axios.get(`${baseUrl}/cart`);
 //     return response.data;
 //   };
 
-// const metals = getAllMetals();
 // const cart = getAllCarts();
 
 // const initialState = {

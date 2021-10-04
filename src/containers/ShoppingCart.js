@@ -1,3 +1,35 @@
+import React, { useContext } from 'react';
+import ShopContext from '../context/context';
+
+const ShoppingCart = () => {
+  const context = useContext(ShopContext);
+  return (
+    <>
+      <div>
+        {context.cart.length < 1 && <h2>Your shopping cart is empty</h2>}
+        {context.cart.length > 0 && (
+          <h2>
+            You have {context.cart.length} different types of items in the cart:
+          </h2>
+        )}
+        <ul>
+          {context.cart.map((cartItem) => (
+            <li key={cartItem.id}>
+              <div>{cartItem.name}</div>
+              <div>{cartItem.price}</div>
+              <div>{cartItem.qty}</div>
+              <button onClick={() => context.removeProduct(cartItem.id)}>
+                Remove from cart
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
+  );
+};
+export default ShoppingCart;
+
 // import React from 'react';
 // import { useSelector, useDispatch } from 'react-redux';
 
